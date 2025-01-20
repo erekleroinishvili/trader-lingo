@@ -4,11 +4,13 @@ export type PlaceholderType =
     never
 
 export interface AnyPromptMold {
+    type: 'prompt'
     prompt: string | string[]
     reply: string | string[]
 }
 
 export interface AnyPrompt {
+    type: 'prompt'
     prompt: string
     reply: string[]
 }

@@ -1,11 +1,11 @@
 import { AnyPromptMold, PlaceholderType, AnyPrompt } from "../models/any-prompt.model"
-import { genrateRandomUnit } from "./random-generators.util"
+import { genrateRandomValueForPlaceholder } from "./random-generators.util"
 import { forceArray, selectRandomElement } from "./various.util"
 
-export function makePhraseFromMold(questonMold: AnyPromptMold): AnyPrompt {
-    const prompt = Array.isArray(questonMold.prompt)
-        ? selectRandomElement(questonMold.prompt)
-        : questonMold.prompt
+export function makeAnyPromptFromMold(anyPromptMold: AnyPromptMold): AnyPrompt {
+    const prompt = Array.isArray(anyPromptMold.prompt)
+        ? selectRandomElement(anyPromptMold.prompt)
+        : anyPromptMold.prompt
 
     // Extract numbered placeholders like: `{$1}` and `{#2}`
     const placeholders = prompt.match(/\{[#$]\d+\}/g) ?? [] as string[]
@@ -22,12 +22,13 @@ export function makePhraseFromMold(questonMold: AnyPromptMold): AnyPrompt {
         }))
         .map(parsedPlaceholder => ({
             placeholder: parsedPlaceholder.placeholder,
-            value: genrateRandomUnit(parsedPlaceholder),
+            value: genrateRandomValueForPlaceholder(parsedPlaceholder),
         }))
 
         return {
+            type: 'prompt',
             prompt: applyPlaceholderMapTo(prompt, placeholderMap),
-            reply: forceArray(questonMold.reply).map(temlate => applyPlaceholderMapTo(temlate, placeholderMap))
+            reply: forceArray(anyPromptMold.reply).map(temlate => applyPlaceholderMapTo(temlate, placeholderMap))
         }
 }
 

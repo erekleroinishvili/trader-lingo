@@ -1,11 +1,19 @@
 import { PlaceholderType } from "../models/any-prompt.model"
+import { TradeSpec } from "../models/ask-bid-prompt.model"
 
-/** Generate random unit for a transaction, such as price or volume */
-export function genrateRandomUnit(parsedPlaceholder: {placeholder: string, type: PlaceholderType, value: number}) {
+/** Generate random value for a placeholder, such as a placeholder for price or volume */
+export function genrateRandomValueForPlaceholder(parsedPlaceholder: {placeholder: string, type: PlaceholderType, value: number}) {
     switch (parsedPlaceholder.type) {
         case '$': return generatePrice()
         case '#': return generateVolume()
         default: throw new Error(`Invalid placeholder "${parsedPlaceholder.placeholder}"`)
+    }
+}
+
+export function generateTradeSpec(): TradeSpec {
+    return {
+        price: generatePrice(),
+        volume: generateVolume()
     }
 }
 

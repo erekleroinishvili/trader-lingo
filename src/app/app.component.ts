@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { makePhraseFromMold } from './utils/any-prompt.util';
+import { makeAnyPromptFromMold } from './utils/any-prompt.util';
 import { QuestionStatementComponent } from './components/question-statement/question-statement.component';
 
 @Component({
@@ -13,7 +13,8 @@ import { QuestionStatementComponent } from './components/question-statement/ques
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  readonly z = makePhraseFromMold({
+  readonly z = makeAnyPromptFromMold({
+    type: 'prompt',
     prompt: 'I want to buy {#1} units of X, for ${$2} each unit',
     reply: '{$1} bid for {#2}'
   })
