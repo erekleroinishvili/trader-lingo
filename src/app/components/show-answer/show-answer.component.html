@@ -1,1 +1,12 @@
 <p>show-answer works!</p>
+@if ( ! showing ) {
+    <button mat-raised-button (click)="showing = ! showing">Show Answer</button>
+} @else {
+    <button mat-raised-button (click)="showing = ! showing">Hide Answer</button>
+
+    <ul>
+        @for (answer of answers(); track $index) {
+            <li>{{ answer }}</li>
+        }
+    </ul>
+}
