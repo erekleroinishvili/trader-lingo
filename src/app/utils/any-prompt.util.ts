@@ -1,8 +1,8 @@
-import { QuestionMold, PlaceholderType, Question } from "../models/question.model"
+import { AnyPromptMold, PlaceholderType, AnyPrompt } from "../models/any-prompt.model"
 import { genrateRandomUnit } from "./random-generators.util"
 import { forceArray, selectRandomElement } from "./various.util"
 
-export function makePhraseFromMold(questonMold: QuestionMold): Question {
+export function makePhraseFromMold(questonMold: AnyPromptMold): AnyPrompt {
     const prompt = Array.isArray(questonMold.prompt)
         ? selectRandomElement(questonMold.prompt)
         : questonMold.prompt

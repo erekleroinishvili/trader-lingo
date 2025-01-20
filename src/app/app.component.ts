@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { makePhraseFromMold } from './utils/question.util';
+import { makePhraseFromMold } from './utils/any-prompt.util';
 import { QuestionStatementComponent } from './components/question-statement/question-statement.component';
 
 @Component({

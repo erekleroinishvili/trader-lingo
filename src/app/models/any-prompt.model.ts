@@ -3,12 +3,12 @@ export type PlaceholderType =
     '#' | // Transaction Volume
     never
 
-export interface QuestionMold {
+export interface AnyPromptMold {
     prompt: string | string[]
     reply: string | string[]
 }
 
-export interface Question {
+export interface AnyPrompt {
     prompt: string
     reply: string[]
 }

@@ -1,4 +1,4 @@
-import { PlaceholderType } from "../models/question.model"
+import { PlaceholderType } from "../models/any-prompt.model"
 
 /** Generate random unit for a transaction, such as price or volume */
 export function genrateRandomUnit(parsedPlaceholder: {placeholder: string, type: PlaceholderType, value: number}) {
