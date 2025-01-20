@@ -1,0 +1,28 @@
+@use 'trades';
+
+:host {
+    display: inline-block;
+    position: relative;
+}
+
+.price {
+    font-size: trades.$tradePriceFontSize;
+    color: trades.$tradePriceFontColor;
+}
+
+.ask-price {
+    position: absolute;
+    top: 200px;
+    left: 90px;
+}
+
+.volume {
+    font-size: trades.$tradeVolumeFontSize;
+    color: trades.$tradeVolumeFontColor;
+}
+
+.ask-volume {
+    position: absolute;
+    top: 116px;
+    left: 380px;
+}

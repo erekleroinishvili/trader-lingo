@@ -1,0 +1,49 @@
+@use 'trades';
+
+:host {
+    display: inline-block;
+    position: relative;
+}
+
+.price {
+    font-size: trades.$tradePriceFontSize;
+    color: trades.$tradePriceFontColor;
+}
+
+.ask-price {
+    position: absolute;
+    top: 200px;
+    left: 90px;
+}
+
+.bid-price {
+    position: absolute;
+    top: 200px;
+    left: 1010px;
+}
+
+.volume {
+    font-size: trades.$tradeVolumeFontSize;
+    color: trades.$tradeVolumeFontColor;
+}
+
+.ask-volume {
+    position: absolute;
+    top: 130px;
+    left: 380px;
+}
+
+.bid-volume {
+    position: absolute;
+    top: 54px;
+    right: 400px;
+}
+
+.ask-bid-volume {
+    position: absolute;
+    top: 98px;
+    left: 388px;
+    right: 400px;
+    text-align: center;
+    border-block-end: thin dashed grey;
+}
