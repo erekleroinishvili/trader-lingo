@@ -1,7 +1,11 @@
-<!--
 <img src="img/buyer.png" alt="Buyer">
-<img src="img/trader-ask.png" alt="Trader selling">
-<img src="img/trader-bid.png" alt="Trader buying">
-<img src="img/trader-ask-bid-same-volume.png" alt="Trader buying and selling different volumes">
-<img src="img/trader-ask-bid.png" alt="Trader buying and selling same volume">
-<img src="img/seller.png" alt="Seller"> -->
+
+<trader-ask-bid [bidPrice]="70.95" [bidVolume]="1000" [askPrice]="70.95" [askVolume]="1000" [cancel]="false" [query]="false" />
+<trader-bid [bidPrice]="70.95" [bidVolume]="1000" [cancel]="false" [query]="false" />
+<trader-ask [askPrice]="70.95" [askVolume]="1000" [cancel]="false" [query]="false" />
+
+<trader-any-prompt [prompt]="['Hello, my friend. How are you? Are you doing well?', 'how are you?']" />
+
+<trader-show-answer [answer]="['I am doing well. Thank you for asking.', 'I am doing well.']" />
+
+<img src="img/seller.png" alt="Seller">

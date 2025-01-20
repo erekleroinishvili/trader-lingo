@@ -2,18 +2,12 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { makePhraseFromMold } from './utils/question.util';
 import { QuestionStatementComponent } from './components/question-statement/question-statement.component';
-import { BidComponent } from './components/bid/bid.component';
-import { AskComponent } from './components/ask/ask.component';
-import { AskBidComponent } from './components/ask-bid/ask-bid.component';
 
 @Component({
   selector: 'trader-root',
   imports: [
     RouterOutlet,
     QuestionStatementComponent,
-    BidComponent,
-    AskComponent,
-    AskBidComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
