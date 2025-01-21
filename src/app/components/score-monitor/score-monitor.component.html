@@ -1,3 +1,5 @@
-Correct: {{correct()}}
-Incorrect: {{incorrect()}}
-Skipped: {{skipped()}}
+<div [@correct]="correct()" [@incorrect]="incorrect()" [@skipped]="skipped()">
+    Correct: {{correct()}} |
+    Incorrect: {{incorrect()}} |
+    Skipped: {{skipped()}}
+</div>
