@@ -1,5 +1,9 @@
-<div [@correct]="correct()" [@incorrect]="incorrect()" [@skipped]="skipped()">
-    Correct: {{correct()}} |
-    Incorrect: {{incorrect()}} |
-    Skipped: {{skipped()}}
-</div>
+@if (correct() || true) {
+    <div [@correct]="correct()">✅ Correct: <span class="count correct">{{correct()}}</span></div>
+}
+@if (incorrect()) {
+    <div [@incorrect]="incorrect()">❌ Incorrect: <span class="count incorrect">{{incorrect()}}</span></div>
+}
+@if (skipped()) {
+    <div [@skipped]="skipped()">⛔ Skipped: <span class="count skipped">{{skipped()}}</span></div>
+}

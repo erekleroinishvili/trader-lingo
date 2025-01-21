@@ -1,3 +1,15 @@
 :host {
-    display: inline-block;
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+}
+
+div {
+    padding-inline: 16px;
+    padding-block: 4px;
+}
+
+div:not(:first-child) {
+    border-left: thin solid grey;
+
 }
