@@ -1,7 +1,7 @@
 import { AskBidPrompt, askBidPromptMold } from "../models/ask-bid-prompt.model";
 import { generateTradeSpec } from "./random-generators.util";
 
-export function makeAnyPromptFromMold(askBidPromptMold: askBidPromptMold): AskBidPrompt {
+export function makeAskBidPromptFromMold(askBidPromptMold: askBidPromptMold): AskBidPrompt {
 
     const mold: askBidPromptMold = {...askBidPromptMold}
 

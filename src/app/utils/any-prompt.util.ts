@@ -8,8 +8,7 @@ export function makeAnyPromptFromMold(anyPromptMold: AnyPromptMold): AnyPrompt {
         : anyPromptMold.prompt
 
     // Extract numbered placeholders like: `{$1}` and `{#2}`
-    const placeholders = prompt.match(/\{[#$]\d+\}/g) ?? [] as string[]
-
+    const placeholders = prompt.match(/\{[^}]+\}/g) ?? [] as string[]
     /**
      * Maps each placeholder to its value. E.g:
      * {`{$1}` -> 9.75, `{#2}` -> 30, `{$3} -> 3.25, ...}
@@ -17,8 +16,8 @@ export function makeAnyPromptFromMold(anyPromptMold: AnyPromptMold): AnyPrompt {
     const placeholderMap = placeholders
         .map(placeholder => ({
             placeholder,
-            type: placeholder[1] as PlaceholderType,
-            value: Number(placeholder.slice(2,-1)),
+            type: placeholder[1] === '$' ? '$' : '#' as PlaceholderType,
+            id: (placeholder.slice(2,-1)),
         }))
         .map(parsedPlaceholder => ({
             placeholder: parsedPlaceholder.placeholder,

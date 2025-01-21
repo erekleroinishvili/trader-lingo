@@ -2,7 +2,7 @@ import { PlaceholderType } from "../models/any-prompt.model"
 import { TradeSpec } from "../models/ask-bid-prompt.model"
 
 /** Generate random value for a placeholder, such as a placeholder for price or volume */
-export function genrateRandomValueForPlaceholder(parsedPlaceholder: {placeholder: string, type: PlaceholderType, value: number}) {
+export function genrateRandomValueForPlaceholder(parsedPlaceholder: {placeholder: string, type: PlaceholderType, id: string}) {
     switch (parsedPlaceholder.type) {
         case '$': return generatePrice()
         case '#': return generateVolume()
@@ -29,4 +29,9 @@ function generatePrice() {
     return Math.random() < .6
         ? Math.floor(1 + Math.random() * 60) * 0.25 // 25, 50, 75, ..., 975
         : Math.floor(1 + Math.random() * 20) * 1.00 // 100, 200, 300, ..., 900
+}
+
+/** Select random number in the range [min, max] */
+export function randomInRange(min: number, max: number) {
+    return Math.floor(min + Math.random() * (max - min + 1))
 }

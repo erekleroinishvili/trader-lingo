@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { makeAnyPromptFromMold } from './utils/any-prompt.util';
 import { QuestionStatementComponent } from './components/question-statement/question-statement.component';
+import { PROMPTS } from './questions.config';
+import { makeAnyPromptFromMold } from './utils/any-prompt.util';
+import { getRandomPrompt } from './utils/prompt.util';
 
 @Component({
   selector: 'trader-root',
@@ -13,11 +15,14 @@ import { QuestionStatementComponent } from './components/question-statement/ques
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  readonly z = makeAnyPromptFromMold({
-    type: 'prompt',
-    prompt: 'I want to buy {#1} units of X, for ${$2} each unit',
-    reply: '{$1} bid for {#2}'
-  })
+  constructor() {
+    const prompt1 = PROMPTS.at(-1)!.prompt!
+    if ( prompt1.type === 'prompt' ) {
+      console.log(makeAnyPromptFromMold(prompt1))
+    }
 
-  readonly z00 = console.log(this.z)
+    for (let i = 0; i < 10; i++) {
+      console.log(getRandomPrompt(PROMPTS));
+    }
+  }
 }

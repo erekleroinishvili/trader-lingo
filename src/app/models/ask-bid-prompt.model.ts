@@ -23,7 +23,6 @@ interface BidOnlyPromptMold extends AskBidPromptBase {
     type: 'bid'
 }
 interface BidOnlyPrompt extends BidOnlyPromptMold {
-    type: 'bid'
     bid: TradeSpec
 }
 
@@ -31,7 +30,6 @@ interface AskBidOnlyPromptMold extends AskBidPromptBase {
     type: 'ask-bid'
 }
 interface AskBidOnlyPrompt extends AskBidOnlyPromptMold {
-    type: 'ask-bid'
     ask: TradeSpec
     bid: TradeSpec
 }
