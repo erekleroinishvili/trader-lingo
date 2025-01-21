@@ -14,6 +14,6 @@ export class AskBidComponent {
   askVolume = input<number>()
   bidPrice = input.required<number>()
   bidVolume = input.required<number>()
-  query = input<boolean>(false)
-  cancel = input<boolean>(false)
+  query = input<boolean | undefined>(false)
+  cancel = input<boolean | undefined>(false)
 }

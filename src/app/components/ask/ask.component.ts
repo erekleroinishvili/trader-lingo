@@ -12,6 +12,6 @@ import { VolumeSuffixComponent } from '../volume-suffix/volume-suffix.component'
 export class AskComponent {
   askPrice = input<number>()
   askVolume = input<number>()
-  query = input<boolean>(false)
-  cancel = input<boolean>(false)
+  query = input<boolean | undefined>(false)
+  cancel = input<boolean | undefined>(false)
 }

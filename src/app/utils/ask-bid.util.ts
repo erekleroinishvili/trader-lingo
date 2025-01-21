@@ -10,14 +10,6 @@ export function makeAskBidPromptFromMold(askBidPromptMold: askBidPromptMold): As
 
     const reply = forceArray(mold.reply).slice()
 
-    if ( ! mold.cancel && ! ('query' satisfies keyof typeof mold in mold) ) {
-        mold.query = Math.random() < 0.2
-    }
-
-    if ( ! mold.query && ! ('cancel' satisfies keyof typeof mold in mold) ) {
-        mold.cancel = Math.random() < 0.2
-    }
-
     const ask = generateTradeSpec()
     const bid = generateTradeSpec()
 

@@ -1,9 +1,20 @@
-<img src="img/buyer.png" alt="Buyer">
+@let p = prompt();
 
-<trader-ask-bid [bidPrice]="70.95" [bidVolume]="1000" [askPrice]="70.95" [askVolume]="1000" [cancel]="false" [query]="false" />
-<trader-bid [bidPrice]="70.95" [bidVolume]="1000" [cancel]="false" [query]="false" />
-<trader-ask [askPrice]="70.95" [askVolume]="1000" [cancel]="false" [query]="false" />
-
-<trader-any-prompt [prompt]="['Hello, my friend. How are you? Are you doing well?', 'how are you?']" />
-
-<img src="img/seller.png" alt="Seller">
+@switch (p.type) {
+    @case ('ask') {
+        <img src="img/buyer.png" alt="Buyer">
+        <trader-ask [askPrice]="p.ask.price" [askVolume]="p.ask.volume" [cancel]="p.cancel" [query]="p.query" />
+    }
+    @case ('bid') {
+        <trader-bid [bidPrice]="p.bid.price" [bidVolume]="p.bid.volume" [cancel]="p.cancel" [query]="p.query" />
+        <img src="img/seller.png" alt="Seller">
+    }
+    @case ('ask-bid') {
+        <img src="img/buyer.png" alt="Buyer">
+        <trader-ask-bid [askPrice]="p.ask.price" [askVolume]="p.ask.volume" [bidPrice]="p.bid.price" [bidVolume]="p.bid.volume" [cancel]="p.cancel" [query]="p.query" />
+        <img src="img/seller.png" alt="Seller">
+    }
+    @case ('prompt') {
+        <trader-any-prompt [prompt]="p.prompt" />
+    }
+}
