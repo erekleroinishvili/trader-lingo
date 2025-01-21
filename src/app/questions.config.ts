@@ -103,6 +103,16 @@ export const PROMPTS: WeightedPrompt[] = [
     {
         weight: 1,
         prompt: {
+            type: 'ask-bid-same',
+            reply: [
+                // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
+                '⛔ Apples!',
+            ],
+        },
+    },
+    {
+        weight: 1,
+        prompt: {
             type: 'prompt',
             prompt: 'Can I use {any-var} for volumes and {$any-var} for prices. E.g.: {ask-volume} {$ask-price} {bid-volume} {$bid-price}',
             reply: [

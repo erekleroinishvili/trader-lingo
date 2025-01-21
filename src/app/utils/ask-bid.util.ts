@@ -10,8 +10,16 @@ export function makeAskBidPromptFromMold(askBidPromptMold: askBidPromptMold): As
 
     const reply = forceArray(mold.reply).slice()
 
-    const ask = generateTradeSpec()
-    const bid = generateTradeSpec()
+    let ask = generateTradeSpec()
+    let bid = generateTradeSpec()
+    if ( ask.price < bid.price ) {
+        [ask, bid] = [bid, ask]
+    }
+    if ( askBidPromptMold.type === 'ask-bid-same' ) {
+        ask.volume = bid.volume // Same volumes for `ask-bid-same`
+    } else if ( ask.volume === bid.volume ) { // Different volumes for `ask-bid`
+        ask.volume += 10
+    }
 
     const replacements: {pattern: RegExp, value: number | string}[] = [
         { pattern: /\{\W?ask-price\}/gi, value: ask.price },
@@ -27,7 +35,8 @@ export function makeAskBidPromptFromMold(askBidPromptMold: askBidPromptMold): As
     switch ( mold.type ) {
         case 'ask': return { ...mold, reply, ask }
         case 'bid': return { ...mold, reply, bid }
-        case 'ask-bid': return { ...mold, reply, ask, bid }
+        case 'ask-bid':
+        case 'ask-bid-same': return { ...mold, reply, ask, bid }
     }
 
 }

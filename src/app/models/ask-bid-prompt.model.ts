@@ -27,7 +27,9 @@ interface BidOnlyPrompt extends BidOnlyPromptMold {
 }
 
 interface AskBidOnlyPromptMold extends AskBidPromptBase {
-    type: 'ask-bid'
+    type:
+        'ask-bid' | // Different volumes for ask and bid
+        'ask-bid-same' // Same volumes for ask and bid
 }
 interface AskBidOnlyPrompt extends AskBidOnlyPromptMold {
     ask: TradeSpec
