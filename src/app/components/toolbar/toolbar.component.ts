@@ -11,5 +11,5 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ToolbarComponent {
   nextPrompt = output<void>()
-  resetCounter = output<void>()
+  resetCounters = output<void>()
 }

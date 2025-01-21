@@ -1,6 +1,6 @@
 @if (question$ | async; as question) {
     <div class="content spaced-row toolbar-and-monitor">
-        <trader-toolbar (nextPrompt)="skipQuestion()" />
+        <trader-toolbar (nextPrompt)="skipQuestion()" (resetCounters)="resetCounters()" />
         <trader-score-monitor [correct]="correctCount" [incorrect]="incorrectCount" [skipped]="skippedCount" />
     </div>
     <trader-question-statement [prompt]="question" class="spaced-row" />

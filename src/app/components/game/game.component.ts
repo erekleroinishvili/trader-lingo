@@ -52,4 +52,10 @@ export class GameComponent {
     this.nextQuestion$.next()
   }
 
+  protected resetCounters() {
+    this.correctCount = 0
+    this.incorrectCount = 0
+    this.skippedCount = 0
+  }
+
 }
