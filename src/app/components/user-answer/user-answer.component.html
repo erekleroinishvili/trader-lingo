@@ -4,5 +4,5 @@
         <input matInput placeholder="" [@correct]="correctCount" [@incorrect]="incorrectCount" #answer>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Check</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="isEmpty(answer.value)">Check</button>
 </form>

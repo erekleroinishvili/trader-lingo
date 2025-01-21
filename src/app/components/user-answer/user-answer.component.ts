@@ -38,6 +38,7 @@ export class UserAnswerComponent implements OnChanges, AfterViewInit {
   private readonly userInput = viewChild.required<ElementRef<HTMLInputElement>>('answer')
 
   protected checkAnswer(answer: string) {
+    if ( this.isEmpty(answer) ) return
     const correct = matchAnswers(answer, this.answers())
     if (correct) {
       this.correctCount++
@@ -60,6 +61,10 @@ export class UserAnswerComponent implements OnChanges, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getReadyForNextUserInput()
+  }
+
+  isEmpty(value: string) {
+    return !value || !value.trim().length
   }
 
 }
