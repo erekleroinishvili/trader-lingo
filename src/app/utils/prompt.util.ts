@@ -17,10 +17,21 @@ export function getRandomPrompt(list: WeightedPrompt[]): AnyPrompt | AskBidPromp
     }
 }
 
-function matchAnswer(candidateAnswer: string, correctAnswer: string) {
-    return candidateAnswer.toLowerCase() === correctAnswer.toLowerCase()
-}
-
 export function matchAnswers(candidateAnswer: string, correctAnswers: string[]) {
     return correctAnswers.some(correctAnswer => matchAnswer(candidateAnswer, correctAnswer))
+}
+
+function matchAnswer(candidateAnswer: string, correctAnswer: string) {
+    return processAnswer(candidateAnswer) === processAnswer(correctAnswer)
+}
+
+function processAnswer(answer: string) {
+    return answer
+        .toLowerCase() // Convert to lowercase
+        .replace(/[$€£]/g, '') // Remove currency symbols
+        .replace(/[,!?]/g, '') // Remove some punctuation
+        .replace(/\s+/g, ' ') // Remove multiple spaces
+        .replace(/^\s+/, '') // Remove leading spaces
+        .replace(/\s+$/, '') // Remove trailing spaces
+        .replace(/\W$/, '') // Remove trailing punctuation
 }

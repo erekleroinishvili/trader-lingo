@@ -17,14 +17,13 @@ import { matchAnswers } from '../../utils/prompt.util';
 })
 export class UserAnswerComponent implements OnChanges, AfterViewInit {
   answers = input.required<string[], string | string[]>({transform: forceArray})
-  correct = output<true>()
+  correct = output<boolean>()
 
   private readonly userInput = viewChild.required<ElementRef<HTMLInputElement>>('answer')
 
   protected checkAnswer(answer: string) {
-    if ( matchAnswers(answer, this.answers()) ) {
-      this.correct.emit(true)
-    }
+console.log('Checking answer:', answer)
+    this.correct.emit(matchAnswers(answer, this.answers()))
   }
 
   private getReadyForNextUserInput() {
