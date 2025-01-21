@@ -1,13 +1,13 @@
-import { Component, inject } from '@angular/core';
-import { getRandomPrompt } from '../../utils/prompt.util';
-import { QuestionsConfigService } from '../../services/questions-config.service';
-import { map, startWith, Subject, switchMap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { map, startWith, Subject, switchMap } from 'rxjs';
+import { QuestionsConfigService } from '../../services/questions-config.service';
+import { getRandomPrompt } from '../../utils/prompt.util';
 import { QuestionStatementComponent } from '../question-statement/question-statement.component';
-import { ShowAnswerComponent } from '../show-answer/show-answer.component';
-import { UserAnswerComponent } from '../user-answer/user-answer.component';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { ScoreMonitorComponent } from '../score-monitor/score-monitor.component';
+import { ShowAnswerComponent } from '../show-answer/show-answer.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { UserAnswerComponent } from '../user-answer/user-answer.component';
 
 @Component({
   selector: 'trader-game',
@@ -31,7 +31,7 @@ export class GameComponent {
     switchMap((questionsConfig) => this.nextQuestion$.pipe(
       startWith(null),
       map(() => getRandomPrompt(questionsConfig))
-    ))
+    )),
   )
 
   protected correctCount = 0

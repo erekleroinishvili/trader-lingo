@@ -3,7 +3,7 @@
 } @else if ( cancel() ) {
     <img src="img/trader-ask-bid-cancel.png" alt="Trader cancels ask">
 } @else {
-    @if ( askPrice() === bidPrice() ) {
+    @if ( askVolume() === bidVolume() ) {
         <img src="img/trader-ask-bid-same-volume.png" alt="Trader buying">
         <div class="volume ask-bid-volume">{{ askVolume() }}<trader-volume-suffix /></div>
     } @else {

@@ -1,6 +1,9 @@
 @let p = prompt();
 
 @switch (p.type) {
+    @case ('prompt') {
+        <trader-any-prompt [prompt]="p.prompt" />
+    }
     @case ('ask') {
         <img src="img/buyer.png" alt="Buyer" class="buyer">
         <trader-ask [askPrice]="p.ask.price" [askVolume]="p.ask.volume" [cancel]="p.cancel" [query]="p.query" />
@@ -9,12 +12,10 @@
         <trader-bid [bidPrice]="p.bid.price" [bidVolume]="p.bid.volume" [cancel]="p.cancel" [query]="p.query" />
         <img src="img/seller.png" alt="Seller" class="seller">
     }
-    @case ('ask-bid') {
+    @default {
         <img src="img/buyer.png" alt="Buyer" class="buyer">
         <trader-ask-bid [askPrice]="p.ask.price" [askVolume]="p.ask.volume" [bidPrice]="p.bid.price" [bidVolume]="p.bid.volume" [cancel]="p.cancel" [query]="p.query" />
         <img src="img/seller.png" alt="Seller" class="seller">
     }
-    @case ('prompt') {
-        <trader-any-prompt [prompt]="p.prompt" />
-    }
+
 }
