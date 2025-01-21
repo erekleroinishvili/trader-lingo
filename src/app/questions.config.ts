@@ -34,7 +34,7 @@ export const PROMPTS: WeightedPrompt[] = [
         },
     },
     {
-        weight: 1e7,
+        weight: 1,
         prompt: {
             type: 'bid',
             reply: [

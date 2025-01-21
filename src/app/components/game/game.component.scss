@@ -1,5 +1,14 @@
 @use 'screens';
 
+.content {
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+.spaced-row {
+    margin-block-end: 32px;
+}
+
 .toolbar-and-monitor {
     display: grid;
     gap: 16px;

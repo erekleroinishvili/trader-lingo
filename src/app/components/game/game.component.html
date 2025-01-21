@@ -1,11 +1,13 @@
 @if (question$ | async; as question) {
-    <div class="toolbar-and-monitor">
+    <div class="content spaced-row toolbar-and-monitor">
         <trader-toolbar (nextPrompt)="skipQuestion()" />
         <trader-score-monitor [correct]="correctCount" [incorrect]="incorrectCount" [skipped]="skippedCount" />
     </div>
-    <trader-question-statement [prompt]="question" />
-    <trader-user-answer [answers]="question.reply" (correct)="processOutcome($event)" />
-    <trader-show-answer [answers]="question.reply" />
+    <trader-question-statement [prompt]="question" class="spaced-row" />
+    <div class="content">
+        <trader-user-answer [answers]="question.reply" (correct)="processOutcome($event)" class="spaced-row" />
+        <trader-show-answer [answers]="question.reply" />
+    </div>
 } @else {
     <div>Loading questions...</div>
 }
