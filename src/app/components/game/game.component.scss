@@ -1,0 +1,27 @@
+@use 'screens';
+
+.toolbar-and-monitor {
+    display: grid;
+    gap: 16px;
+    align-items: center;
+}
+
+@include screens.small-screen {}
+
+@include screens.medium-screen {
+    .toolbar-and-monitor {
+        grid-template-columns: 1fr max-content;
+    }
+}
+
+@include screens.large-screen {
+    .toolbar-and-monitor {
+        grid-template-columns: 1fr max-content;
+    }
+}
+
+@include screens.huge-screen {
+    .toolbar-and-monitor {
+        grid-template-columns: 1fr max-content;
+    }
+}
