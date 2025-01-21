@@ -1,4 +1,38 @@
+@use 'screens';
+
 :host {
     text-align: center;
     display: block;
 }
+
+@include screens.small-screen {
+    img.buyer {
+        display: none;
+    }
+
+    img.seller {
+        display: none;
+    }
+}
+
+@include screens.medium-screen {
+    img.buyer {
+        height: 180px;
+    }
+
+    img.seller {
+        height: 235px;
+    }
+}
+
+@include screens.large-screen {
+    img.buyer {
+        height: 270px;
+    }
+
+    img.seller {
+        height: 335px;
+    }
+}
+
+@include screens.huge-screen {}

@@ -1,4 +1,5 @@
 @use 'trades';
+@use 'screens';
 
 :host {
     display: inline-block;
@@ -6,44 +7,155 @@
 }
 
 .price {
-    font-size: trades.$tradePriceFontSize;
+    position: absolute;
     color: trades.$tradePriceFontColor;
-}
-
-.ask-price {
-    position: absolute;
-    top: 200px;
-    left: 90px;
-}
-
-.bid-price {
-    position: absolute;
-    top: 200px;
-    left: 1010px;
+    text-align: center;
 }
 
 .volume {
-    font-size: trades.$tradeVolumeFontSize;
+    position: absolute;
     color: trades.$tradeVolumeFontColor;
 }
 
-.ask-volume {
-    position: absolute;
-    top: 130px;
-    left: 380px;
-}
-
-.bid-volume {
-    position: absolute;
-    top: 54px;
-    right: 400px;
-}
-
 .ask-bid-volume {
-    position: absolute;
-    top: 98px;
-    left: 388px;
-    right: 400px;
     text-align: center;
     border-block-end: thin dashed grey;
+}
+
+@include screens.small-screen {
+    img {
+        height: 250px;
+    }
+    .volume {
+        font-size: trades.$tradeVolumeFontSizeMedium;
+    }
+    .price {
+        font-size: trades.$tradePriceFontSizeMedium;
+    }
+    .ask-price {
+        top: 88px;
+        left: 33px;
+        right: 404px;
+    }
+    .bid-price {
+        top: 88px;
+        left: 436px;
+        right: 2px;
+    }
+    .ask-volume {
+        top: 50px;
+        left: 170px;
+    }
+    .bid-volume {
+        top: 12px;
+        right: 170px;
+    }
+    .ask-bid-volume {
+        top: 20px;
+        left: 172px;
+        right: 178px;
+    }
+}
+
+@include screens.medium-screen {
+    img {
+        height: 250px;
+    }
+    .volume {
+        font-size: trades.$tradeVolumeFontSizeMedium;
+    }
+    .price {
+        font-size: trades.$tradePriceFontSizeMedium;
+    }
+    .ask-price {
+        top: 88px;
+        left: 33px;
+        right: 404px;
+    }
+    .bid-price {
+        top: 88px;
+        left: 436px;
+        right: 2px;
+    }
+    .ask-volume {
+        top: 50px;
+        left: 170px;
+    }
+    .bid-volume {
+        top: 12px;
+        right: 170px;
+    }
+    .ask-bid-volume {
+        top: 20px;
+        left: 172px;
+        right: 178px;
+    }
+}
+
+@include screens.large-screen {
+    img {
+        height: 350px;
+    }
+    .volume {
+        font-size: trades.$tradeVolumeFontSizeLarge;
+    }
+    .price {
+        font-size: trades.$tradePriceFontSizeLarge;
+    }
+    .ask-price {
+        top: 124px;
+        left: 50px;
+        right: 565px;
+    }
+    .bid-price {
+        top: 124px;
+        left: 612px;
+        right: 4px;
+    }
+    .ask-volume {
+        top: 72px;
+        left: 238px;
+    }
+    .bid-volume {
+        top: 26px;
+        right: 238px;
+    }
+    .ask-bid-volume {
+        top: 44px;
+        left: 239px;
+        right: 246px;
+    }
+}
+
+@include screens.huge-screen {
+    .volume {
+        font-size: trades.$tradeVolumeFontSizeHuge;
+    }
+    .price {
+        font-size: trades.$tradePriceFontSizeHuge;
+    }
+    .ask-price {
+        top: 200px;
+        left: 83px;
+        right: 923px;
+    }
+    .bid-price {
+        top: 200px;
+        left: 1002px;
+        right: 4px;
+    }
+    .ask-volume {
+        top: 130px;
+        left: 380px;
+        right: 567px;
+    }
+    .bid-volume {
+        top: 54px;
+        right: 400px;
+    }
+    .ask-bid-volume {
+        top: 96px;
+        left: 388px;
+        right: 400px;
+    }
 }
