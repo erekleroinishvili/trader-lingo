@@ -4,6 +4,7 @@ import { QuestionsConfigService } from '../../services/questions-config.service'
 import { map, startWith, Subject, switchMap } from 'rxjs';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { QuestionStatementComponent } from '../question-statement/question-statement.component';
+import { ShowAnswerComponent } from '../show-answer/show-answer.component';
 
 @Component({
   selector: 'trader-game',
@@ -11,6 +12,7 @@ import { QuestionStatementComponent } from '../question-statement/question-state
     AsyncPipe,
     JsonPipe,
     QuestionStatementComponent,
+    ShowAnswerComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'

@@ -5,6 +5,7 @@
     {{ question | json }}
     <br>
     <trader-question-statement [prompt]="question" />
+    <trader-show-answer [answers]="question.reply" />
 } @else {
     <div>Loading questions...</div>
 }
