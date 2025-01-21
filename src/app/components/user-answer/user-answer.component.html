@@ -1,0 +1,8 @@
+<form (ngSubmit)="checkAnswer(answer.value)">
+    <mat-form-field>
+        <mat-label>Your Answer</mat-label>
+        <input matInput placeholder="" #answer>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Check</button>
+</form>

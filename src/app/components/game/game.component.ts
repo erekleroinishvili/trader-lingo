@@ -5,14 +5,18 @@ import { map, startWith, Subject, switchMap } from 'rxjs';
 import { AsyncPipe, JsonPipe } from '@angular/common';
 import { QuestionStatementComponent } from '../question-statement/question-statement.component';
 import { ShowAnswerComponent } from '../show-answer/show-answer.component';
+import { UserAnswerComponent } from '../user-answer/user-answer.component';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   selector: 'trader-game',
   imports: [
     AsyncPipe,
     JsonPipe,
+    ToolbarComponent,
     QuestionStatementComponent,
     ShowAnswerComponent,
+    UserAnswerComponent,
   ],
   templateUrl: './game.component.html',
   styleUrl: './game.component.scss'
@@ -28,4 +32,5 @@ export class GameComponent {
       map(() => getRandomPrompt(questionsConfig))
     ))
   )
+
 }

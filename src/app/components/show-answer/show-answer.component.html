@@ -1,4 +1,6 @@
-<mat-slide-toggle [ngModel]="showing" (change)="showing = $event.checked">Show Answer</mat-slide-toggle>
+<div class="actions">
+    <mat-slide-toggle [ngModel]="showing" (change)="showing = $event.checked">Show Answer</mat-slide-toggle>
+</div>
 
 @if ( showing ) {
     <ul>

@@ -1,7 +1,6 @@
 import { Component, effect, input } from '@angular/core';
 import { forceArray } from '../../utils/various.util';
 import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle'
 import { FormsModule } from '@angular/forms';
 
@@ -10,7 +9,6 @@ import { FormsModule } from '@angular/forms';
   imports: [
     FormsModule,
     MatButtonModule,
-    MatIconModule,
     MatSlideToggleModule,
   ],
   templateUrl: './show-answer.component.html',

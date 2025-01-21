@@ -1,10 +1,11 @@
 <p>game works!</p>
-<button (click)="nextQuestion$.next()">Next Question</button>
 
 @if (question$ | async; as question) {
-    {{ question | json }}
-    <br>
+
+                                                                        {{ question | json }}<br>
+    <trader-toolbar (nextPrompt)="nextQuestion$.next()" />
     <trader-question-statement [prompt]="question" />
+    <trader-user-answer [answers]="question.reply" (correct)="nextQuestion$.next()" />
     <trader-show-answer [answers]="question.reply" />
 } @else {
     <div>Loading questions...</div>

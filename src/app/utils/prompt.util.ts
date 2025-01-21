@@ -7,7 +7,7 @@ import { selectRandomElementByWeightKey } from "./various.util"
 
 export function getRandomPrompt(list: WeightedPrompt[]): AnyPrompt | AskBidPrompt {
     const promptMold = selectRandomElementByWeightKey(list)
-    switch ( promptMold.type ) {
+    switch (promptMold.type) {
         case 'prompt':
             return makeAnyPromptFromMold(promptMold)
         case 'ask':
@@ -15,4 +15,12 @@ export function getRandomPrompt(list: WeightedPrompt[]): AnyPrompt | AskBidPromp
         case 'ask-bid':
             return makeAskBidPromptFromMold(promptMold)
     }
+}
+
+function matchAnswer(candidateAnswer: string, correctAnswer: string) {
+    return candidateAnswer.toLowerCase() === correctAnswer.toLowerCase()
+}
+
+export function matchAnswers(candidateAnswer: string, correctAnswers: string[]) {
+    return correctAnswers.some(correctAnswer => matchAnswer(candidateAnswer, correctAnswer))
 }
