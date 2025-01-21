@@ -4,6 +4,7 @@ import { MatButtonModule } from '@angular/material/button'
 import { MatInputModule } from '@angular/material/input'
 import { forceArray } from '../../utils/various.util';
 import { matchAnswers } from '../../utils/prompt.util';
+import { trigger, transition, animate, keyframes, style } from '@angular/animations';
 
 @Component({
   selector: 'trader-user-answer',
@@ -13,17 +14,37 @@ import { matchAnswers } from '../../utils/prompt.util';
     MatInputModule,
   ],
   templateUrl: './user-answer.component.html',
-  styleUrl: './user-answer.component.scss'
+  styleUrl: './user-answer.component.scss',
+  animations: [
+    trigger('correct', [
+      transition(':increment', animate(3000, keyframes([
+        style({ backgroundColor: 'green', offset: .5 }),
+      ]))),
+    ]),
+    trigger('incorrect', [
+      transition(':increment', animate(3000, keyframes([
+        style({ backgroundColor: 'red', offset: .5 }),
+      ]))),
+    ]),
+  ],
 })
 export class UserAnswerComponent implements OnChanges, AfterViewInit {
-  answers = input.required<string[], string | string[]>({transform: forceArray})
+  answers = input.required<string[], string | string[]>({ transform: forceArray })
   correct = output<boolean>()
+
+  protected correctCount = 0
+  protected incorrectCount = 0
 
   private readonly userInput = viewChild.required<ElementRef<HTMLInputElement>>('answer')
 
   protected checkAnswer(answer: string) {
-console.log('Checking answer:', answer)
-    this.correct.emit(matchAnswers(answer, this.answers()))
+    const correct = matchAnswers(answer, this.answers())
+    if (correct) {
+      this.correctCount++
+    } else {
+      this.incorrectCount++
+    }
+    this.correct.emit(correct)
   }
 
   private getReadyForNextUserInput() {
@@ -32,7 +53,7 @@ console.log('Checking answer:', answer)
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if ( changes['answers'] ) {
+    if (changes['answers']) {
       this.getReadyForNextUserInput()
     }
   }
