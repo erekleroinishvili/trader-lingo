@@ -111,13 +111,39 @@ export const PROMPTS: WeightedPrompt[] = [
         }
     },
     {
-        weight: 0,
+        weight: 2,
         prompt: {
             type: 'ask',
             query: true,
             reply: [
                 // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
+                'Where is the bid in apples?',
+                'What price can I sell apples for?',
+            ],
+        },
+    },
+    {
+        weight: 2,
+        prompt: {
+            type: 'bid',
+            query: true,
+            reply: [
+                // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
                 'Where is the offer in apples?',
+                'What price can I buy apples for?',
+            ],
+        },
+    },
+    {
+        weight: 2,
+        prompt: {
+            type: 'ask-bid',
+            query: true,
+            reply: [
+                // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
+                'How are apples?',
+                'What is the market in apples?',
+                'Where is the bid/offer in apples?',
             ],
         },
     },
@@ -136,35 +162,10 @@ export const PROMPTS: WeightedPrompt[] = [
         weight: 0,
         prompt: {
             type: 'bid',
-            query: true,
-            reply: [
-                // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
-                'Where is the bid in apples?',
-                'What price can I buy apples for?',
-            ],
-        },
-    },
-    {
-        weight: 0,
-        prompt: {
-            type: 'bid',
             cancel: true,
             reply: [
                 // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
                 '${bid-price} bid for {bid-volume}',
-            ],
-        },
-    },
-    {
-        weight: 0,
-        prompt: {
-            type: 'ask-bid',
-            query: true,
-            reply: [
-                // Use: {ask-volume} {ask-price} {bid-volume} {bid-price}
-                'How are apples?',
-                'What is the market in apples?',
-                'Where is the bid/offer in apples?',
             ],
         },
     },
