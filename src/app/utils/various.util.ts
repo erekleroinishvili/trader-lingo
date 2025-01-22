@@ -9,7 +9,7 @@ export function forceArray<T>(itemOrList: T | T[]) {
 
 /** Selects random element from an array */
 export function selectRandomElement<T>(list: T[]) {
-    return list[Math.random() * list.length]
+    return list[Math.floor(Math.random() * list.length)]
 }
 
 export function selectRandomElementByWeightKey(list: WeightedPrompt[]): WeightedPrompt['prompt'] {
