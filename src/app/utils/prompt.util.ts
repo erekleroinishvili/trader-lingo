@@ -28,9 +28,11 @@ function processAnswer(answer: string) {
     return answer
         .toLowerCase() // Convert to lowercase
         .replace(/[$€£]/g, '') // Remove currency symbols
-        .replace(/[,!?]/g, '') // Remove some punctuation
+        .replace(/['",!?/]/g, '') // Remove some punctuation
         .replace(/\s+/g, ' ') // Remove multiple spaces
         .replace(/^\s+/, '') // Remove leading spaces
         .replace(/\s+$/, '') // Remove trailing spaces
+        .replace(/(?<=\D)\s+/g, '') // Remove spaces after non-digit
+        .replace(/\s+(?=\D)/g, '') // Remove spaces before non-digit
         .replace(/\W$/, '') // Remove trailing punctuation
 }
