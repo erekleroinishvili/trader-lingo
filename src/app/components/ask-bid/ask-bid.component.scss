@@ -10,16 +10,19 @@
     position: absolute;
     color: trades.$tradePriceFontColor;
     text-align: center;
+    transform: scale(var(--flip-horizontal, 1), 1);
 }
 
 .volume {
     position: absolute;
     color: trades.$tradeVolumeFontColor;
+    transform: scale(var(--flip-horizontal, 1), 1);
 }
 
 .ask-bid-volume {
     text-align: center;
     border-block-end: thin dashed grey;
+    transform: scale(var(--flip-horizontal, 1), 1);
 }
 
 @include screens.small-screen {
