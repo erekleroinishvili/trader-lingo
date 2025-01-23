@@ -14,4 +14,5 @@ export class BidComponent {
   bidVolume = input.required<number>()
   query = input<boolean | undefined>(false)
   cancel = input<boolean | undefined>(false)
+  imgSuffix = input<string>('')
 }

@@ -1,9 +1,9 @@
 @if ( query() ) {
-    <img src="img/trader-ask-query.png" alt="Trader queries ask price">
+    <img [src]="'img/trader-ask-query' + imgSuffix() + '.png'" alt="Trader queries ask price">
 } @else if ( cancel() ) {
-    <img src="img/trader-ask-cancel.png" alt="Trader cancels ask">
+    <img [src]="'img/trader-ask-cancel' + imgSuffix() + '.png'" alt="Trader cancels ask">
 } @else {
-    <img src="img/trader-ask.png" alt="Trader buying">
+    <img [src]="'img/trader-ask' + imgSuffix() + '.png'" alt="Trader buying">
     <div class="volume ask-volume">{{ askVolume() }}<trader-volume-suffix /></div>
     <div class="price ask-price">{{ askPrice() }}</div>
 }

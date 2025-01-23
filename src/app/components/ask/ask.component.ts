@@ -14,4 +14,5 @@ export class AskComponent {
   askVolume = input<number>()
   query = input<boolean | undefined>(false)
   cancel = input<boolean | undefined>(false)
+  imgSuffix = input<string>('')
 }

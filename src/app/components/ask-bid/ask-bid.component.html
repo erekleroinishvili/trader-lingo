@@ -1,13 +1,13 @@
 @if ( query() ) {
-    <img src="img/trader-ask-bid-query.png" alt="Trader queries ask price">
+    <img [src]="'img/trader-ask-bid-query' + imgSuffix() + '.png'" alt="Trader queries ask price">
 } @else if ( cancel() ) {
-    <img src="img/trader-ask-bid-cancel.png" alt="Trader cancels ask">
+    <img [src]="'img/trader-ask-bid-cancel' + imgSuffix() + '.png'" alt="Trader cancels ask">
 } @else {
     @if ( askVolume() === bidVolume() ) {
-        <img src="img/trader-ask-bid-same-volume.png" alt="Trader buying">
+        <img [src]="'img/trader-ask-bid-same-volume' + imgSuffix() + '.png'" alt="Trader buying">
         <div class="volume ask-bid-volume">{{ askVolume() }}<trader-volume-suffix /></div>
     } @else {
-        <img src="img/trader-ask-bid.png" alt="Trader buying">
+        <img [src]="'img/trader-ask-bid' + imgSuffix() + '.png'" alt="Trader buying">
         <div class="volume ask-volume">{{ askVolume() }}<trader-volume-suffix /></div>
         <div class="volume bid-volume">{{ bidVolume() }}<trader-volume-suffix /></div>
     }
