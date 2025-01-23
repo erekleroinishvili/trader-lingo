@@ -89,7 +89,7 @@ export const PROMPTS: WeightedPrompt[] = [
         prompt: {
             type: 'prompt',
             prompt: [
-                'I am selling all the contracts on the bid',
+                'I will sell you all the contracts you want',
             ],
             reply: [
                 // Use: {any-var} for volumes and {$any-var} for prices. E.g.: {ask-volume} {$ask-price} {bid-volume} {$bid-price}
